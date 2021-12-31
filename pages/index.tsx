@@ -47,7 +47,8 @@ export const getStaticProps= async ()=>{
               title:video.title,
               thumbnail:video.thumbnail
           }))
-      }
+      },
+    revalidate:3,
   }
 }
 

@@ -56,6 +56,7 @@ const Title= styled.div`
     font-weight: bold;
     position: absolute;
     height: 28%;
+    width: 100%;
     z-index: 999;
     top:72%;
     text-align: center;

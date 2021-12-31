@@ -63,7 +63,7 @@ export const getStaticPaths=async ()=>{
     client.close();
     //tao ra tat ca cac dynamic path
     return {
-        fallback:false,
+        fallback:"blocking",
         paths:videosTitleWithId.map(title=>({
             params:{ title:title.title }
         }))
