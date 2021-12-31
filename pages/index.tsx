@@ -3,6 +3,8 @@ import {MongoClient} from "mongodb"
 import styled from "styled-components"
 import Slider from '../components/slider'
 import { SCREEN } from '../variables'
+import { Fragment } from 'react'
+import Head from 'next/head'
 
 //css
 const HomeContainer = styled.div`
@@ -16,13 +18,20 @@ interface IProps {
 }
 const Home: NextPage<IProps> = ({videos}) => {
   return (
-   <HomeContainer>
-     <Slider videos={videos} />
-     <Slider videos={videos} />
-     <Slider videos={videos} />
-     <Slider videos={videos} />
-     <Slider videos={videos} />
-   </HomeContainer>
+    <Fragment>
+      <Head>
+        <title>JAV Area</title>
+        <meta name="description" content="Phim sex gái xinh cực hot được tuyển chọn kĩ lưỡng cùng với nội dung hấp dẫn, chất lượng. Phim sex đủ mọi thể loại với tốc độ nhanh và siêu nét" />
+      </Head>
+      <HomeContainer>
+        <Slider videos={videos} />
+        <Slider videos={videos} />
+        <Slider videos={videos} />
+        <Slider videos={videos} />
+        <Slider videos={videos} />
+      </HomeContainer>
+    </Fragment>
+   
   )
 }
 

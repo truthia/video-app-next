@@ -2,10 +2,11 @@
 import { GetStaticProps, NextPage } from "next"
 import styled from "styled-components"
 import { useRouter } from "next/router"
-import { useEffect, useState } from "react"
+import { Fragment, useEffect, useState } from "react"
 import { DATA } from "../../data"
 import { MongoClient } from "mongodb"
 import { VIDEO } from "../../variables"
+import Head from "next/head"
 
 const WatchContainer =styled.div`
     width: 100%;
@@ -13,6 +14,18 @@ const WatchContainer =styled.div`
     display: flex;
     flex-direction:column;
     align-items: center;
+`
+const Title=styled.div`
+    width: 80%;
+    color: white;
+    font-size: xx-large;
+    margin-top: 50px;
+`
+const Spliter=styled.div`
+    width: 80%;
+    height: 2px;
+    background-color: white;
+    margin:20px 0;
 `
 const VideoContainer = styled.div`
     width: 80%;
@@ -26,11 +39,20 @@ interface IProps{
 }
 const Watch:NextPage<IProps> = ({video}) => {
     return (
-     <WatchContainer>
-         <VideoContainer>
-         {video!== undefined? <iframe src={video.source} frameBorder="0" scrolling="0" allowFullScreen></iframe>:<p>Loading</p> }
-         </VideoContainer>
+    <Fragment>
+        <Head>
+            <title>JAV Area: {video.title}</title>
+            <meta name="description" content={`You are watching: ${video.title}`} />
+        </Head>
+        <WatchContainer>
+            <Title>{video.title}</Title>
+            <Spliter />
+            <VideoContainer>
+            {video!== undefined? <iframe src={video.source} frameBorder="0" scrolling="0" allowFullScreen></iframe>:<p>Loading</p> }
+            </VideoContainer>
      </WatchContainer>
+    </Fragment>
+    
     )
 }
 export const getStaticPaths=async ()=>{
