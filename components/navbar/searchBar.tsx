@@ -7,7 +7,7 @@ const SearchBarContainer= styled.div`
     height: 100%;
 `
 const Input=styled.input`
-    display:block;
+    display:inline;
     padding-left: 8px;
     width: 100%;
     height: 40px;
@@ -19,7 +19,7 @@ const Input=styled.input`
     }
 `
 const Button= styled.button`
-    display:block;
+    display:inline;
     position: absolute;
     width: 32px;
     max-height: 40px;
